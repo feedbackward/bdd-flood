@@ -1,0 +1,65 @@
+name: bdd-flood
+
+# notes:
+# There are only four data types: string, float, path, uri (no int or bool).
+# https://mlflow.org/docs/latest/projects.html#specifying-parameters
+
+entry_points:
+  # tests using synthetic data.
+  synthetic:
+    parameters:
+      adaptive: {type: string}
+      base_gpu_id: {type: float}
+      bs_tr: {type: float}
+      dataset: {type: string}
+      dimension: {type: float}
+      epochs: {type: float}
+      eta: {type: float}
+      flood_level: {type: float}
+      force_cpu: {type: string}
+      force_one_gpu: {type: string}
+      label_noise: {type: float}
+      loss: {type: string}
+      method: {type: string}
+      model: {type: string}
+      momentum: {type: float}
+      num_classes: {type: float}
+      n_te: {type: float}
+      n_tr: {type: float}
+      n_va: {type: float}
+      optimizer: {type: string}
+      optimizer_base: {type: string}
+      radius: {type: float}
+      random_seed: {type: float}
+      sigma: {type: float}
+      step_size: {type: float}
+      theta: {type: float}
+      weight_decay: {type: float}
+    command: "python synthetic.py --adaptive {adaptive} --base-gpu-id {base_gpu_id} --bs-tr {bs_tr} --dataset {dataset} --dimension {dimension} --epochs {epochs} --eta {eta} --flood-level {flood_level} --force-cpu {force_cpu} --force-one-gpu {force_one_gpu} --label-noise {label_noise} --loss {loss} --method {method} --model {model} --momentum {momentum} --num-classes {num_classes} --n-te {n_te} --n-tr {n_tr} --n-va {n_va} --optimizer {optimizer} --optimizer-base {optimizer_base} --radius {radius} --random-seed {random_seed} --sigma {sigma} --step-size {step_size} --theta {theta} --weight-decay {weight_decay}"
+  # tests using benchmark data.
+  benchmarks:
+    parameters:
+      adaptive: {type: string}
+      base_gpu_id: {type: float}
+      bs_tr: {type: float}
+      dataset: {type: string}
+      dimension: {type: float}
+      epochs: {type: float}
+      eta: {type: float}
+      flood_level: {type: float}
+      force_cpu: {type: string}
+      force_one_gpu: {type: string}
+      loss: {type: string}
+      method: {type: string}
+      model: {type: string}
+      momentum: {type: float}
+      num_classes: {type: float}
+      optimizer: {type: string}
+      optimizer_base: {type: string}
+      radius: {type: float}
+      random_seed: {type: float}
+      sigma: {type: float}
+      step_size: {type: float}
+      theta: {type: float}
+      weight_decay: {type: float}
+    command: "python benchmarks.py --adaptive {adaptive} --base-gpu-id {base_gpu_id} --bs-tr {bs_tr} --dataset {dataset} --dimension {dimension} --epochs {epochs} --eta {eta} --flood-level {flood_level} --force-cpu {force_cpu} --force-one-gpu {force_one_gpu} --loss {loss} --method {method} --model {model} --momentum {momentum} --num-classes {num_classes} --optimizer {optimizer} --optimizer-base {optimizer_base} --radius {radius} --random-seed {random_seed} --sigma {sigma} --step-size {step_size} --theta {theta} --weight-decay {weight_decay}"
