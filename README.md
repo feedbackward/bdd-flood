@@ -15,20 +15,20 @@ First, we [install miniforge](https://github.com/conda-forge/miniforge) (i.e., a
 Next, [installing PyTorch](https://pytorch.org/) after a bunch of other software can lead to some complications, and so I elected to install it first, as below.
 
 ```
-$ conda create -n bdd-flood-pytorch pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
+$ conda create -n bdd-flood pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
 ```
 
 Note that the version of CUDA (here, 11.7) may need to be adjusted for your system. Now for JupyterLab and matplotlib, among others.
 
 ```
-$ conda activate bdd-flood-pytorch
-(bdd-flood-pytorch) $ conda install jupyterlab
+$ conda activate bdd-flood
+(bdd-flood) $ conda install jupyterlab
 ```
 
 This was super fast, no problem at all. The next command, however, was extremely slow.
 
 ```
-(bdd-flood-pytorch) $ conda install matplotlib
+(bdd-flood) $ conda install matplotlib
 ```
 
 This took about 10 minutes, but in the end it did go through, and both torch and matplotlib can be imported and used together. Great.
@@ -36,13 +36,13 @@ This took about 10 minutes, but in the end it did go through, and both torch and
 Next, let's [use pip](https://pypi.org/project/pip/) to get [mlflow](https://mlflow.org/).
 
 ```
-(bdd-flood-pytorch) $ pip install mlflow
+(bdd-flood) $ pip install mlflow
 ```
 
 With proper scripts, we can easily access the result of experiments (= one or more runs) via the mlflow ui, as follows.
 
 ```
-(bdd-flood-pytorch) $ mlflow ui
+(bdd-flood) $ mlflow ui
 ```
 
 This can be executed from the same directory as we execute the top driver scripts. That said, all the main figures in the paper are produced with Jupyter notebooks, not using the mlflow interface directly.
@@ -73,7 +73,7 @@ Before we give the commands to execute each experiment, let us note that the key
 Using our default settings, simply run the following command.
 
 ```
-(bdd-flood-pytorch $ python run_synthetic.py
+(bdd-flood) $ python run_synthetic.py
 ```
 
 All the experimental settings are specified within this file `run_synthetic.py`, and the main driver script is `synthetic.py`. Results can be viewed using the Jupyter notebook called `eval_synthetic.ipynb`.
@@ -84,7 +84,7 @@ All the experimental settings are specified within this file `run_synthetic.py`,
 Running these experiments is essentially analogous to those just described. Run the following command.
 
 ```
-(bdd-flood-pytorch $ python run_benchmarks.py
+(bdd-flood) $ python run_benchmarks.py
 ```
 
 All the experimental settings are specified within this file `run_benchmarks.py`, and the main driver script is `benchmarks.py`. Results can be viewed using the Jupyter notebook called `eval_benchmarks.ipynb`.
