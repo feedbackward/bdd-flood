@@ -81,7 +81,7 @@ dimension_dict = {
 
 
 ## Methods to be evaluated.
-methods = ["ERM", "Ishida", "SAM", "SoftAD"]
+methods = ["ERM", "Ishida", "SAM", "SoftAD", "iFlood"]
 
 ### Vanilla ERM.
 mth_ERM = {}
@@ -120,11 +120,25 @@ for i in range(len(thetas)):
     to_add["theta"] = thetas[i]
     mth_SoftAD_list += [to_add]
 
+### iFlood method.
+mth_iFlood = {
+    "sigma": 1.0,
+    "eta": 1.0
+}
+thetas = np.array([0.01, 0.02, 0.05, 0.1, 0.15, 0.2, 0.25, 0.35, 0.5, 0.75])
+mth_iFlood_list = []
+for i in range(len(thetas)):
+    to_add = copy.deepcopy(mth_iFlood)
+    to_add["theta"] = thetas[i]
+    mth_iFlood_list += [to_add]
+
+### Parameter lists for all methods.
 mth_paras_lists = {
     "ERM": mth_ERM_list,
     "Ishida": mth_Ishida_list,
     "SAM": mth_SAM_list,
-    "SoftAD": mth_SoftAD_list
+    "SoftAD": mth_SoftAD_list,
+    "iFlood": mth_iFlood_list
 }
 
 
