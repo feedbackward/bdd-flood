@@ -2,7 +2,7 @@
 
 In this repository, we provide software and demonstrations related to the following paper:
 
-- [Soft ascent-descent as a stable and flexible alternative to flooding](https://arxiv.org/abs/2310.10006). Matthew J. Holland and Kosuke Nakatani. *NeurIPS 2024*, to appear.
+- [Soft ascent-descent as a stable and flexible alternative to flooding](https://papers.nips.cc/paper_files/paper/2024/hash/430894999584d0bd358611e2ecf00b15-Abstract-Conference.html). Matthew J. Holland and Kosuke Nakatani. *NeurIPS 2024*.
 
 This repository contains code which can be used to faithfully reproduce all the experimental results given in the above paper, and it can be easily applied to more general machine learning tasks outside the examples considered here.
 
